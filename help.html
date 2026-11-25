@@ -1,0 +1,391 @@
+<!-- index.html - Home Page (Dark Mode Creative Library with Logo Image and Custom Footer) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Help center and frequently asked questions.">
+  <meta name="theme-color" content="#121212">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="My e-Library - Help">
+  <meta property="og:description" content="Help center and frequently asked questions.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My e-Library - Help</title>
+  <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar, .footer {
+      background-color: #1f1f1f;
+    }
+    .card {
+      background-color: #2a2a2a;
+      border: none;
+      color: white;
+    }
+    .btn-custom {
+      background: #4caf50;
+      border: none;
+      color: white;
+    }
+    .btn-custom:hover {
+      background: #43a047;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0d0d0d, #2c3e50);
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .icon-btn {
+      color: #fff;
+      margin-left: 15px;
+      font-size: 20px;
+    }
+    .icon-btn:hover {
+      color: #4caf50;
+    }
+    .search-input {
+      border-radius: 20px;
+      border: none;
+      padding: 5px 15px;
+    }
+    .navbar-brand img {
+      height: 45px;
+      margin-right: 10px;
+    }
+    .footer {
+      padding: 60px 20px 20px;
+    }
+    .footer .row div {
+      margin-bottom: 20px;
+    }
+    .footer a {
+      color: #bbb;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #4caf50;
+    }
+    .footer i {
+      margin-right: 10px;
+    }
+    .footer .social-icons a {
+      margin-right: 10px;
+      color: #bbb;
+    }
+    .footer .social-icons a:hover {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+<script src="js/config.js"></script>
+<script src="js/seed-books.js"></script>
+<script src="js/app.js"></script>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="images/logo.svg" alt="Logo">
+      <span class="d-none d-md-inline text-light">My e-Library</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="catalogs.html"><i class="fas fa-book-open icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="book-collection.html"><i class="fas fa-layer-group icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html"><i class="fas fa-blog icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="help.html"><i class="fas fa-question-circle icon-btn"></i></a></li>
+      </ul>
+      <form class="d-flex me-3" action="search.html">
+        <input class="form-control form-control-sm search-input" type="search" name="query" placeholder="Search...">
+      </form>
+      <a href="wishlist.html" class="icon-btn"><i class="fas fa-heart"></i></a>
+      <a href="cart.html" class="icon-btn"><i class="fas fa-shopping-cart"></i></a>
+      <a href="login.html" class="icon-btn"><i class="fas fa-user"></i></a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Help Center</h1>
+      <p class="lead">Find answers to your questions</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <div class="row">
+      <!-- FAQ -->
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h4>Frequently Asked Questions</h4>
+          </div>
+          <div class="card-body">
+            <div class="accordion" id="faqAccordion">
+              <!-- FAQ Item 1 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    How do I create an account?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    To create an account, click on the "Sign Up" button at the top right of the page or visit our <a href="register.html">registration page</a>. You'll need to provide your name, email address, and create a password.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 2 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    How can I reset my password?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    If you've forgotten your password, go to the <a href="login.html">login page</a> and click on "Forgot Password." You'll receive an email with instructions to reset your password.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 3 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    What devices can I use to access the e-Library?
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    Our e-Library is accessible on all devices including computers, tablets, and smartphones. We also have dedicated apps for iOS and Android devices available in their respective app stores.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 4 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                    How do I borrow an e-book?
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    To borrow an e-book, simply find the book you want in our catalog, click on it, and then click the "Borrow" button. The book will be added to your personal library for the loan period (typically 14 days).
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 5 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                    Can I download books to read offline?
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    Yes, most books in our collection can be downloaded for offline reading. Look for the download icon (↓) next to the book in your library. Note that some publisher restrictions may apply to certain titles.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 6 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingSix">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                    How many books can I borrow at once?
+                  </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    Standard members can borrow up to 5 books at a time. Premium members have a limit of 10 books. You can return books early to borrow additional titles.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 7 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingSeven">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
+                    What file formats are supported?
+                  </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    We support EPUB, PDF, and MOBI formats. Our reading app automatically selects the best format for your device. You can also choose your preferred format in the settings.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 8 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingEight">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight">
+                    How do I renew my borrowed books?
+                  </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    You can renew books from your "My Library" section. Click on the book and select "Renew" if available. Note that renewals are subject to availability - if another user has placed a hold on the book, you may need to return it.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 9 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingNine">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine">
+                    Are there any fees for using the e-Library?
+                  </button>
+                </h2>
+                <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    Basic membership is free and gives you access to thousands of titles. We also offer a premium membership with additional benefits for a small monthly fee. Some special collections or new releases may require separate purchase.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- FAQ Item 10 -->
+              <div class="accordion-item bg-dark border-secondary mb-2">
+                <h2 class="accordion-header" id="headingTen">
+                  <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
+                    How do I recommend a book for the library to acquire?
+                  </button>
+                </h2>
+                <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-secondary">
+                    We welcome book recommendations! You can suggest titles by visiting the "Contact Us" page and selecting "Book Suggestion" from the dropdown menu. Our acquisitions team reviews all suggestions regularly.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Support -->
+        <div class="card mt-4">
+          <div class="card-header">
+            <h4>Still Need Help?</h4>
+          </div>
+          <div class="card-body">
+            <p>If you can't find the answer to your question in our FAQ, our support team is ready to help you.</p>
+             <div class="d-flex gap-2">
+                <a href="contact.html" class="btn btn-sm btn-custom">Contact Us</a>
+                <a href="wishlist.html" class="btn btn-sm btn-outline-light">View Wishlist</a>
+                <a href="admin.html" class="btn btn-sm btn-outline-info">Admin Panel</a>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Help Topics -->
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5>Help Topics</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-transparent text-white border-secondary">
+                <a href="#" class="text-decoration-none"><i class="fas fa-user me-2"></i> Account Help</a>
+              </li>
+              <li class="list-group-item bg-transparent text-white border-secondary">
+                <a href="#" class="text-decoration-none"><i class="fas fa-book me-2"></i> Reading Help</a>
+              </li>
+              <li class="list-group-item bg-transparent text-white border-secondary">
+                <a href="#" class="text-decoration-none"><i class="fas fa-shopping-cart me-2"></i> Purchases</a>
+              </li>
+              <li class="list-group-item bg-transparent text-white border-secondary">
+                <a href="#" class="text-decoration-none"><i class="fas fa-tablet-alt me-2"></i> Device Support</a>
+              </li>
+              <li class="list-group-item bg-transparent text-white border-secondary">
+                <a href="#" class="text-decoration-none"><i class="fas fa-lock me-2"></i> Privacy & Security</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="fas fa-headset fa-3x mb-3 text-primary"></i>
+            <h5>24/7 Support</h5>
+            <p>Our customer service team is available around the clock to assist you.</p>
+            <a href="contact.html" class="btn btn-outline-light"><i class="fas fa-envelope me-2"></i> Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p>My e-Library is your digital gateway to thousands of books, magazines, and resources. Accessible anytime, anywhere.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalogs.html">Catalog</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Support</h5>
+          <ul class="list-unstyled">
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="help.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Info</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+            <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> support@myelibrary.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-4 bg-secondary">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0">&copy; 2025 My e-Library. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

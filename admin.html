@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Admin dashboard.">
+  <meta name="theme-color" content="#121212">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="My e-Library - Admin">
+  <meta property="og:description" content="Admin dashboard.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My e-Library - Admin</title>
+  <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar, .footer {
+      background-color: #1f1f1f;
+    }
+    .card {
+      background-color: #2a2a2a;
+      border: none;
+      color: white;
+    }
+    .btn-custom {
+      background: #4caf50;
+      border: none;
+      color: white;
+    }
+    .btn-custom:hover {
+      background: #43a047;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0d0d0d, #2c3e50);
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .icon-btn {
+      color: #fff;
+      margin-left: 15px;
+      font-size: 20px;
+    }
+    .icon-btn:hover {
+      color: #4caf50;
+    }
+    .search-input {
+      border-radius: 20px;
+      border: none;
+      padding: 5px 15px;
+    }
+    .navbar-brand img {
+      height: 45px;
+      margin-right: 10px;
+    }
+    .footer {
+      padding: 60px 20px 20px;
+    }
+    .footer .row div {
+      margin-bottom: 20px;
+    }
+    .footer a {
+      color: #bbb;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #4caf50;
+    }
+    .footer i {
+      margin-right: 10px;
+    }
+    .footer .social-icons a {
+      margin-right: 10px;
+      color: #bbb;
+    }
+    .footer .social-icons a:hover {
+      color: #4caf50;
+    }
+    .admin-sidebar {
+      background-color: #1a1a1a;
+      min-height: calc(100vh - 56px);
+      padding: 20px 0;
+    }
+    .admin-content {
+      padding: 30px;
+    }
+    .admin-nav-link {
+      color: #bbb;
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+    }
+    .admin-nav-link:hover, .admin-nav-link.active {
+      color: #4caf50;
+      background-color: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+<script src="js/config.js"></script>
+<script src="js/seed-books.js"></script>
+<script src="js/app.js"></script>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="images/logo.svg" alt="Logo">
+      <span class="d-none d-md-inline text-light">My e-Library Admin</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home icon-btn"></i></a></li>
+      </ul>
+      <div class="d-flex">
+        <a href="#" class="icon-btn" id="logoutBtn" title="Log out"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Admin Content -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3 col-lg-2 admin-sidebar">
+        <ul class="nav flex-column">
+          <li><a href="admin.html" class="admin-nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="#orders" class="admin-nav-link"><i class="fas fa-file-alt"></i> Orders</a></li>
+          <li><a href="#books" class="admin-nav-link"><i class="fas fa-book"></i> Books</a></li>
+          <li><a href="#users" class="admin-nav-link"><i class="fas fa-users"></i> Users</a></li>
+          <li><a href="#messages" class="admin-nav-link"><i class="fas fa-envelope"></i> Messages</a></li>
+          <li><a href="#settings" class="admin-nav-link"><i class="fas fa-database"></i> Database</a></li>
+        </ul>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="col-md-9 col-lg-10 admin-content"><div id="app"><div class="text-center text-muted py-5">Loading…</div></div></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer text-center text-lg-start">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">My e-Library</h5>
+          <p>Your one-stop destination for all your reading needs. Explore fiction, non-fiction, textbooks and classics.</p>
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="catalogs.html"><i class="fas fa-book-open"></i> Catalogs</a></li>
+            <li><a href="book-collection.html"><i class="fas fa-layer-group"></i> Collections</a></li>
+            <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Help & Support</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="help.html"><i class="fas fa-question-circle"></i> Help Center</a></li>
+            <li><a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+            <li><i class="fas fa-envelope"></i> hello@elibrary.example</li>
+            <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2026 My e-Library. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

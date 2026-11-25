@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Explore school textbooks, A/L technology books, classics and higher education collections.">
+  <meta name="theme-color" content="#121212">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="My e-Library - Book Collection">
+  <meta property="og:description" content="Explore school textbooks, A/L technology books, classics and higher education collections.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My e-Library - Book Collection</title>
+  <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar, .footer {
+      background-color: #1f1f1f;
+    }
+    .card {
+      background-color: #2a2a2a;
+      border: none;
+      color: white;
+    }
+    .btn-custom {
+      background: #4caf50;
+      border: none;
+      color: white;
+    }
+    .btn-custom:hover {
+      background: #43a047;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0d0d0d, #2c3e50);
+      padding: 100px 20px;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+    }
+    .icon-btn {
+      color: #fff;
+      margin-left: 15px;
+      font-size: 20px;
+    }
+    .icon-btn:hover {
+      color: #4caf50;
+    }
+    .search-input {
+      border-radius: 20px;
+      border: none;
+      padding: 5px 15px;
+    }
+    .navbar-brand img {
+      height: 45px;
+      margin-right: 10px;
+    }
+    .footer {
+      padding: 60px 20px 20px;
+    }
+    .footer .row div {
+      margin-bottom: 20px;
+    }
+    .footer a {
+      color: #bbb;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #4caf50;
+    }
+    .footer i {
+      margin-right: 10px;
+    }
+    .footer .social-icons a {
+      margin-right: 10px;
+      color: #bbb;
+    }
+    .footer .social-icons a:hover {
+      color: #4caf50;
+    }
+    /* Collection specific styles */
+    .collection-card {
+      cursor: pointer;
+      transition: transform 0.3s;
+      overflow: hidden;
+    }
+    .collection-card:hover {
+      transform: translateY(-5px);
+    }
+    .collection-img {
+      height: 180px;
+      object-fit: cover;
+    }
+    .book-img {
+      height: 200px;
+      object-fit: contain;
+      padding: 10px;
+    }
+    .action-btns {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-download {
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    .btn-read {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    .btn-buy {
+      background: #FF5722;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    #collectionHeader {
+      background: linear-gradient(135deg, #0d0d0d, #2c3e50);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0 0 20px 20px;
+    }
+    .list-group-item.bg-transparent {
+      background-color: transparent !important;
+    }
+    .border-secondary {
+      border-color: #444 !important;
+    }
+    /* Modal styles */
+    .modal-content {
+      background-color: #2a2a2a;
+      color: white;
+    }
+    .modal-header {
+      border-bottom: 1px solid #444;
+    }
+    .modal-footer {
+      border-top: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+<script src="js/config.js"></script>
+<script src="js/seed-books.js"></script>
+<script src="js/app.js"></script>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="images/logo.svg" alt="Logo">
+      <span class="d-none d-md-inline text-light">My e-Library</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="catalogs.html"><i class="fas fa-book-open icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link active" href="book-collection.html"><i class="fas fa-layer-group icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html"><i class="fas fa-blog icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="help.html"><i class="fas fa-question-circle icon-btn"></i></a></li>
+      </ul>
+      <form class="d-flex me-3" action="search.html">
+        <input class="form-control form-control-sm search-input" type="search" name="query" placeholder="Search...">
+      </form>
+      <a href="wishlist.html" class="icon-btn"><i class="fas fa-heart"></i></a>
+      <a href="cart.html" class="icon-btn"><i class="fas fa-shopping-cart"></i></a>
+      <a href="login.html" class="icon-btn"><i class="fas fa-user"></i></a>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Default View) -->
+  <section id="defaultHero" class="hero">
+    <div class="container">
+      <h1>Welcome to Our Book Collections</h1>
+      <p class="lead">Browse through our carefully curated collections of books</p>
+      <a href="#collectionsGrid" class="btn btn-custom btn-lg mt-3">Browse Collections</a>
+    </div>
+  </section>
+
+  <!-- Collection Header (Hidden by default) -->
+  <section id="collectionHeader" class="d-none">
+    <div class="container text-center">
+      <h1 id="collectionTitle" class="display-4 fw-bold"></h1>
+      <p id="collectionDescription" class="lead"></p>
+      <button class="btn btn-light btn-lg" onclick="showAllCollections()">Back to All Collections</button>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    <!-- Collections Grid (Default View) -->
+    <div id="collectionsGrid" class="row g-4">
+      <div class="col-md-4">
+        <div class="collection-card card h-100" onclick="showCollection('grade1-5')">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="Grade 1-5 Textbooks" class="collection-img card-img-top" alt="Grade 1-5 Textbooks">
+          <div class="card-body">
+            <h5 class="card-title">Grade 1-5 Textbooks</h5>
+            <p class="card-text">All textbooks for primary education (Grades 1-5)</p>
+            <small class="text-muted">10 books</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collection-card card h-100" onclick="showCollection('grade6-11')">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="Grade 6-11 Textbooks" class="collection-img card-img-top" alt="Grade 6-11 Textbooks">
+          <div class="card-body">
+            <h5 class="card-title">Grade 6-11 Textbooks</h5>
+            <p class="card-text">All textbooks for secondary education (Grades 6-11)</p>
+            <small class="text-muted">10 books</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collection-card card h-100" onclick="showCollection('al-technology')">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="A/L Technology Stream" class="collection-img card-img-top" alt="A/L Technology Stream">
+          <div class="card-body">
+            <h5 class="card-title">A/L Technology Stream</h5>
+            <p class="card-text">Recommended textbooks for Advanced Level Technology students</p>
+            <small class="text-muted">10 books</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collection-card card h-100" onclick="showCollection('school')">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="All School Textbooks" class="collection-img card-img-top" alt="All School Textbooks">
+          <div class="card-body">
+            <h5 class="card-title">All School Textbooks</h5>
+            <p class="card-text">Complete collection of school textbooks from Grade 1 to A/L</p>
+            <small class="text-muted">30 books</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collection-card card h-100" onclick="showCollection('classic')">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="Classic Literature" class="collection-img card-img-top" alt="Classic Literature">
+          <div class="card-body">
+            <h5 class="card-title">Classic Literature</h5>
+            <p class="card-text">Timeless masterpieces from the greatest authors in history</p>
+            <small class="text-muted">10 books</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collection-card card h-100" onclick="showCollection('higher-ed')">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="Higher Education" class="collection-img card-img-top" alt="Higher Education">
+          <div class="card-body">
+            <h5 class="card-title">Higher Education</h5>
+            <p class="card-text">University textbooks and professional exam resources</p>
+            <small class="text-muted">10 books</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specific Collection View (Hidden by default) -->
+    <div id="specificCollection" class="d-none">
+      <h2 id="collectionBooksTitle" class="mb-4"></h2>
+      <div id="collectionBooks" class="row g-4"></div>
+    </div>
+
+    <!-- Featured Authors (Default View) -->
+    <div id="featuredAuthors" class="mt-5">
+      <h2 class="mb-4">Featured Authors</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-avatar="32" class="card-img-top rounded-circle w-50 mx-auto mt-3" alt="Author">
+            <div class="card-body text-center">
+              <h5 class="card-title">John Smith</h5>
+              <p class="card-text text-muted small">Educational Writer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-avatar="44" class="card-img-top rounded-circle w-50 mx-auto mt-3" alt="Author">
+            <div class="card-body text-center">
+              <h5 class="card-title">Jane Doe</h5>
+              <p class="card-text text-muted small">Literature Professor</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-avatar="75" class="card-img-top rounded-circle w-50 mx-auto mt-3" alt="Author">
+            <div class="card-body text-center">
+              <h5 class="card-title">Robert Johnson</h5>
+              <p class="card-text text-muted small">Science Writer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-avatar="68" class="card-img-top rounded-circle w-50 mx-auto mt-3" alt="Author">
+            <div class="card-body text-center">
+              <h5 class="card-title">Sarah Williams</h5>
+              <p class="card-text text-muted small">Mathematics Expert</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buy Modal -->
+  <div class="modal fade" id="buyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="buyModalTitle">Purchase Book</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="buyModalContent">Are you sure you want to purchase this book?</p>
+          <div class="mb-3">
+            <label for="paymentMethod" class="form-label">Payment Method</label>
+            <select class="form-select" id="paymentMethod">
+              <option value="credit">Credit Card</option>
+              <option value="debit">Debit Card</option>
+              <option value="paypal">PayPal</option>
+              <option value="bank">Bank Transfer</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" value="1" min="1">
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Total:</span>
+            <span id="totalPrice" class="fw-bold">Rs. 0</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success" onclick="confirmPurchase()">Confirm Purchase</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Read Modal -->
+  <div class="modal fade" id="readModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="readModalTitle">Reading: <span id="readBookTitle"></span></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe id="bookViewer" src="" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Modal -->
+  <div class="modal fade" id="downloadModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="downloadModalTitle">Download Book</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="downloadModalContent">Select download format:</p>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" onclick="downloadBook('pdf')"><i class="fas fa-file-pdf"></i> PDF Format</button>
+            <button class="btn btn-success" onclick="downloadBook('epub')"><i class="fas fa-book-open"></i> EPUB Format</button>
+            <button class="btn btn-secondary" onclick="downloadBook('mobi')"><i class="fas fa-mobile-alt"></i> MOBI Format</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer text-center text-lg-start">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">My e-Library</h5>
+          <p>Your one-stop destination for all your reading needs. Explore fiction, non-fiction, textbooks and classics.</p>
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="catalogs.html"><i class="fas fa-book-open"></i> Catalogs</a></li>
+            <li><a href="book-collection.html"><i class="fas fa-layer-group"></i> Collections</a></li>
+            <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Help & Support</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="help.html"><i class="fas fa-question-circle"></i> Help Center</a></li>
+            <li><a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+            <li><i class="fas fa-envelope"></i> hello@elibrary.example</li>
+            <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2026 My e-Library. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script>
+    // Collection data with 10 books for each category
+    const collections = {
+      'grade1-5': {
+        title: "Grade 1-5 Textbooks",
+        description: "All textbooks for primary education (Grades 1-5)",
+        books: [
+          {
+            title: "Grade 1 Mathematics",
+            author: "Geraldine H. Pipadass",
+            price: "Rs. 450",
+            rating: "★★★★☆",
+            read: "1-maths.pdf",
+          },
+          {
+            title: "Grade 1 English",
+            author: "National Curriculum",
+            price: "Rs. 450",
+            rating: "★★★★☆",
+            read: "1-english.pdf",
+          },
+          {
+            title: "Grade 1 Sinhala",
+            author: "National Curriculum",
+            price: "Rs. 450",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 2 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 480",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 2 English",
+            author: "National Curriculum",
+            price: "Rs. 480",
+            rating: "★★★★★",
+          },
+          {
+            title: "Grade 3 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 500",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 3 Science",
+            author: "National Curriculum",
+            price: "Rs. 500",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 4 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 520",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 5 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 550",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 5 Science",
+            author: "National Curriculum",
+            price: "Rs. 550",
+            rating: "★★★★★",
+          }
+        ]
+      },
+      'grade6-11': {
+        title: "Grade 6-11 Textbooks",
+        description: "All textbooks for secondary education (Grades 6-11)",
+        books: [
+          {
+            title: "Grade 6 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 650",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 6 Science",
+            author: "National Curriculum",
+            price: "Rs. 650",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 7 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 680",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 8 Science",
+            author: "National Curriculum",
+            price: "Rs. 700",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 9 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 720",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 10 Science",
+            author: "National Curriculum",
+            price: "Rs. 750",
+            rating: "★★★★★",
+          },
+          {
+            title: "Grade 10 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 750",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 11 Commerce",
+            author: "National Curriculum",
+            price: "Rs. 780",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 11 Science",
+            author: "National Curriculum",
+            price: "Rs. 780",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 11 Arts",
+            author: "National Curriculum",
+            price: "Rs. 780",
+            rating: "★★★★☆",
+          }
+        ]
+      },
+      'al-technology': {
+        title: "A/L Technology Stream",
+        description: "Recommended textbooks for Advanced Level Technology students",
+        books: [
+          {
+            title: "Engineering Technology",
+            author: "Department of Education",
+            price: "Rs. 1,250",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Information Technology",
+            author: "Department of Education",
+            price: "Rs. 1,300",
+            rating: "★★★★★",
+          },
+          {
+            title: "Mechanical Technology",
+            author: "Department of Education",
+            price: "Rs. 1,350",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Electrical Technology",
+            author: "Department of Education",
+            price: "Rs. 1,400",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Civil Technology",
+            author: "Department of Education",
+            price: "Rs. 1,450",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Bio Systems Technology",
+            author: "Department of Education",
+            price: "Rs. 1,500",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Agro Technology",
+            author: "Department of Education",
+            price: "Rs. 1,550",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Food Technology",
+            author: "Department of Education",
+            price: "Rs. 1,600",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Electronic Technology",
+            author: "Department of Education",
+            price: "Rs. 1,650",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Graphics Technology",
+            author: "Department of Education",
+            price: "Rs. 1,700",
+            rating: "★★★★☆",
+          }
+        ]
+      },
+      'school': {
+        title: "All School Textbooks",
+        description: "Complete collection of school textbooks from Grade 1 to A/L",
+        books: [
+          {
+            title: "Grade 1 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 450",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 1 English",
+            author: "National Curriculum",
+            price: "Rs. 450",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 1 Sinhala",
+            author: "National Curriculum",
+            price: "Rs. 450",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 6 Mathematics",
+            author: "National Curriculum",
+            price: "Rs. 650",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 6 Science",
+            author: "National Curriculum",
+            price: "Rs. 650",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 11 Commerce",
+            author: "National Curriculum",
+            price: "Rs. 780",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 11 Science",
+            author: "National Curriculum",
+            price: "Rs. 780",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Grade 11 Arts",
+            author: "National Curriculum",
+            price: "Rs. 780",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Engineering Technology",
+            author: "Department of Education",
+            price: "Rs. 1,250",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Information Technology",
+            author: "Department of Education",
+            price: "Rs. 1,300",
+            rating: "★★★★★",
+          }
+        ]
+      },
+      'classic': {
+        title: "Classic Literature",
+        description: "Timeless masterpieces from the greatest authors in history",
+        books: [
+          {
+            title: "Pride and Prejudice",
+            author: "Jane Austen",
+            price: "Rs. 1,200",
+            rating: "★★★★★",
+          },
+          {
+            title: "To Kill a Mockingbird",
+            author: "Harper Lee",
+            price: "Rs. 1,100",
+            rating: "★★★★★",
+          },
+          {
+            title: "1984",
+            author: "George Orwell",
+            price: "Rs. 1,300",
+            rating: "★★★★★",
+          },
+          {
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            price: "Rs. 1,150",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Moby Dick",
+            author: "Herman Melville",
+            price: "Rs. 1,400",
+            rating: "★★★★☆",
+          },
+          {
+            title: "War and Peace",
+            author: "Leo Tolstoy",
+            price: "Rs. 1,600",
+            rating: "★★★★★",
+          },
+          {
+            title: "Crime and Punishment",
+            author: "Fyodor Dostoevsky",
+            price: "Rs. 1,350",
+            rating: "★★★★☆",
+          },
+          {
+            title: "The Odyssey",
+            author: "Homer",
+            price: "Rs. 1,250",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Jane Eyre",
+            author: "Charlotte Brontë",
+            price: "Rs. 1,200",
+            rating: "★★★★★",
+          },
+          {
+            title: "Wuthering Heights",
+            author: "Emily Brontë",
+            price: "Rs. 1,180",
+            rating: "★★★★☆",
+          }
+        ]
+      },
+      'higher-ed': {
+        title: "Higher Education",
+        description: "University textbooks and professional exam resources",
+        books: [
+          {
+            title: "Computer Science Fundamentals",
+            author: "University Press",
+            price: "Rs. 2,500",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Advanced Mathematics",
+            author: "University Press",
+            price: "Rs. 2,800",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Engineering Physics",
+            author: "University Press",
+            price: "Rs. 3,000",
+            rating: "★★★★★",
+          },
+          {
+            title: "Business Management",
+            author: "University Press",
+            price: "Rs. 2,700",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Medical Biochemistry",
+            author: "University Press",
+            price: "Rs. 3,200",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Law Fundamentals",
+            author: "University Press",
+            price: "Rs. 2,900",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Architecture Design",
+            author: "University Press",
+            price: "Rs. 3,500",
+            rating: "★★★★★",
+          },
+          {
+            title: "Accounting Principles",
+            author: "University Press",
+            price: "Rs. 2,600",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Electrical Engineering",
+            author: "University Press",
+            price: "Rs. 3,300",
+            rating: "★★★★☆",
+          },
+          {
+            title: "Software Engineering",
+            author: "University Press",
+            price: "Rs. 3,100",
+            rating: "★★★★★",
+          }
+        ]
+      }
+    };
+
+    // Current book for modals
+    let currentBook = null;
+
+    // Show specific collection
+    function showCollection(collectionId) {
+      const collection = collections[collectionId];
+      if (!collection) {
+        alert("Collection not found!");
+        return;
+      }
+      
+      // Update header
+      document.getElementById('collectionTitle').textContent = collection.title;
+      document.getElementById('collectionDescription').textContent = collection.description;
+      document.getElementById('collectionHeader').classList.remove('d-none');
+      document.getElementById('defaultHero').classList.add('d-none');
+      
+      // Update books title
+      document.getElementById('collectionBooksTitle').textContent = `${collection.title} (${collection.books.length} books)`;
+      
+      // Clear and populate books
+      const booksContainer = document.getElementById('collectionBooks');
+      booksContainer.innerHTML = '';
+      
+      collection.books.forEach(book => {
+        booksContainer.innerHTML += `
+          <div class="col-md-4 col-lg-3">
+            <div class="card h-100">
+              <img src="${Store.cover(book.title, book.author, collectionId === 'classic' ? 'Classic' : 'Textbook')}" class="card-img-top book-img" alt="${book.title}">
+              <div class="card-body">
+                <h6 class="card-title">${book.title}</h6>
+                <p class="card-text text-muted small">${book.author}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-warning small">${book.rating}</span>
+                  <span class="fw-bold">${book.price}</span>
+                </div>
+                <div class="action-btns">
+                  <button class="btn btn-download" onclick="showDownloadModal('${collectionId}', '${book.title}')"><i class="fas fa-download"></i> Download</button>
+                  <button class="btn btn-read" onclick="showReadModal('${collectionId}', '${book.title}')"><i class="fas fa-book-open"></i> Read</button>
+                  <button class="btn btn-buy" onclick="showBuyModal('${collectionId}', '${book.title}')"><i class="fas fa-shopping-cart"></i> Buy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      // Toggle views
+      document.getElementById('collectionsGrid').classList.add('d-none');
+      document.getElementById('specificCollection').classList.remove('d-none');
+      document.getElementById('featuredAuthors').classList.add('d-none');
+      
+      // Update URL
+      window.history.pushState(null, null, `#${collectionId}`);
+    }
+
+    // Show all collections
+    function showAllCollections() {
+      document.getElementById('collectionHeader').classList.add('d-none');
+      document.getElementById('defaultHero').classList.remove('d-none');
+      document.getElementById('collectionsGrid').classList.remove('d-none');
+      document.getElementById('specificCollection').classList.add('d-none');
+      document.getElementById('featuredAuthors').classList.remove('d-none');
+      
+      // Update URL
+      window.history.pushState(null, null, window.location.pathname);
+    }
+
+    // Show download modal
+    function showDownloadModal(collectionId, bookTitle) {
+      const collection = collections[collectionId];
+      if (!collection) return;
+      
+      const book = collection.books.find(b => b.title === bookTitle);
+      if (!book) return;
+      
+      currentBook = book;
+      
+      const modal = new bootstrap.Modal(document.getElementById('downloadModal'));
+      document.getElementById('downloadModalTitle').textContent = `Download: ${book.title}`;
+      document.getElementById('downloadModalContent').textContent = `Choose your preferred format for "${book.title}" by ${book.author}`;
+      modal.show();
+    }
+
+    // Show read modal
+    function showReadModal(collectionId, bookTitle) {
+      const collection = collections[collectionId];
+      if (!collection) return;
+      
+      const book = collection.books.find(b => b.title === bookTitle);
+      if (!book) return;
+      
+      currentBook = book;
+      
+      if (!/\.pdf$/i.test(book.read || '')) { Store.ui.toast('Online reading is only available for the sample PDFs (Grade 1 Mathematics and English).', 'info'); return; }
+      const modal = new bootstrap.Modal(document.getElementById('readModal'));
+      document.getElementById('readBookTitle').textContent = book.title;
+      document.getElementById('bookViewer').src = book.read;
+      modal.show();
+    }
+
+    // Show buy modal
+    function showBuyModal(collectionId, bookTitle) {
+      const collection = collections[collectionId];
+      if (!collection) return;
+      
+      const book = collection.books.find(b => b.title === bookTitle);
+      if (!book) return;
+      
+      currentBook = book;
+      
+      // Extract numeric price
+      const price = parseInt(book.price.replace(/[^0-9]/g, ''));
+      
+      const modal = new bootstrap.Modal(document.getElementById('buyModal'));
+      document.getElementById('buyModalTitle').textContent = `Purchase: ${book.title}`;
+      document.getElementById('buyModalContent').textContent = `You are about to purchase "${book.title}" by ${book.author}`;
+      document.getElementById('totalPrice').textContent = `Rs. ${price}`;
+      document.getElementById('quantity').value = 1;
+      modal.show();
+    }
+
+    // Download book
+    function downloadBook(format) {
+      if (!currentBook) return;
+      const modal = bootstrap.Modal.getInstance(document.getElementById('downloadModal'));
+      if (modal) modal.hide();
+      if (format !== 'pdf') { Store.ui.toast('Only PDF downloads are available right now.', 'info'); return; }
+      if (!/\.pdf$/i.test(currentBook.read || '')) { Store.ui.toast('No downloadable file for this title yet.', 'info'); return; }
+      const a = document.createElement('a');
+      a.href = currentBook.read; a.download = currentBook.read;
+      document.body.appendChild(a); a.click(); a.remove();
+    }
+
+    // Confirm purchase: adds the book to the local cart
+    function confirmPurchase() {
+      if (!currentBook) return;
+      const quantity = parseInt(document.getElementById('quantity').value) || 1;
+      const dbBook = Store.findByTitle(currentBook.title);
+      const modal = bootstrap.Modal.getInstance(document.getElementById('buyModal'));
+      if (modal) modal.hide();
+      if (!dbBook) { Store.ui.toast('This book is not in the catalogue yet.', 'error'); return; }
+      Store.addToCart(dbBook.id, quantity);
+      setTimeout(() => { location.href = 'cart.html'; }, 700);
+    }
+
+    // Update total price when quantity changes
+    document.getElementById('quantity').addEventListener('input', function() {
+      if (!currentBook) return;
+      
+      const quantity = parseInt(this.value) || 1;
+      const price = parseInt(currentBook.price.replace(/[^0-9]/g, ''));
+      const total = price * quantity;
+      
+      document.getElementById('totalPrice').textContent = `Rs. ${total}`;
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check URL hash on load
+      if (window.location.hash) {
+        const collectionId = window.location.hash.substring(1);
+        showCollection(collectionId);
+      }
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', function() {
+      if (window.location.hash) {
+        const collectionId = window.location.hash.substring(1);
+        showCollection(collectionId);
+      } else {
+        showAllCollections();
+      }
+    });
+  </script>
+</body>
+</html>

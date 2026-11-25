@@ -1,0 +1,14 @@
+{
+  "name": "my-e-library",
+  "version": "1.0.0",
+  "description": "Responsive online bookstore / e-library that runs entirely in the browser (localStorage database).",
+  "private": true,
+  "scripts": {
+    "test": "node tests/e2e.js && node tests/unit.js",
+    "start": "npx --yes http-server . -p 8080 -c-1"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  },
+  "license": "MIT"
+}

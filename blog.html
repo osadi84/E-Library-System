@@ -1,0 +1,289 @@
+<!-- index.html - Home Page (Dark Mode Creative Library with Logo Image and Custom Footer) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Reading tips, book reviews and library news.">
+  <meta name="theme-color" content="#121212">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="My e-Library - Blog">
+  <meta property="og:description" content="Reading tips, book reviews and library news.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My e-Library - Blog</title>
+  <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar, .footer {
+      background-color: #1f1f1f;
+    }
+    .card {
+      background-color: #2a2a2a;
+      border: none;
+      color: white;
+    }
+    .btn-custom {
+      background: #4caf50;
+      border: none;
+      color: white;
+    }
+    .btn-custom:hover {
+      background: #43a047;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0d0d0d, #2c3e50);
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .icon-btn {
+      color: #fff;
+      margin-left: 15px;
+      font-size: 20px;
+    }
+    .icon-btn:hover {
+      color: #4caf50;
+    }
+    .search-input {
+      border-radius: 20px;
+      border: none;
+      padding: 5px 15px;
+    }
+    .navbar-brand img {
+      height: 45px;
+      margin-right: 10px;
+    }
+    .footer {
+      padding: 60px 20px 20px;
+    }
+    .footer .row div {
+      margin-bottom: 20px;
+    }
+    .footer a {
+      color: #bbb;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #4caf50;
+    }
+    .footer i {
+      margin-right: 10px;
+    }
+    .footer .social-icons a {
+      margin-right: 10px;
+      color: #bbb;
+    }
+    .footer .social-icons a:hover {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+<script src="js/config.js"></script>
+<script src="js/seed-books.js"></script>
+<script src="js/app.js"></script>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="images/logo.svg" alt="Logo">
+      <span class="d-none d-md-inline text-light">My e-Library</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="catalogs.html"><i class="fas fa-book-open icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="book-collection.html"><i class="fas fa-layer-group icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html"><i class="fas fa-blog icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope icon-btn"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="help.html"><i class="fas fa-question-circle icon-btn"></i></a></li>
+      </ul>
+      <form class="d-flex me-3" action="search.html">
+        <input class="form-control form-control-sm search-input" type="search" name="query" placeholder="Search...">
+      </form>
+      <a href="wishlist.html" class="icon-btn"><i class="fas fa-heart"></i></a>
+      <a href="cart.html" class="icon-btn"><i class="fas fa-shopping-cart"></i></a>
+      <a href="login.html" class="icon-btn"><i class="fas fa-user"></i></a>
+    </div>
+  </nav>
+
+  <!-- Above head and navbar same as index.html -->
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Library Blog</h1>
+    <p class="lead">Discover articles, reviews and literary news</p>
+  </div>
+</section>
+
+<!-- Main Content -->
+<main class="container my-5">
+  <div class="row">
+    <!-- Featured Post -->
+    <div class="col-12 mb-5">
+      <div class="card">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="From the Blog" class="img-fluid h-100" style="object-fit: cover;" alt="Blog illustration">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">Featured</span>
+              <h2>The Future of Digital Reading</h2>
+              <p class="text-muted">Posted on June 15, 2023 by Admin</p>
+              <p>Explore how technology is transforming the way we read and interact with books in the digital age...</p>
+              <a href="#" class="btn btn-custom">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Blog Posts -->
+    <div class="col-md-8">
+      <div class="row g-4">
+        <!-- Blog Post Card -->
+        <div class="col-md-6">
+          <div class="card h-100">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-banner="From the Blog" class="card-img-top" alt="Blog illustration">
+            <div class="card-body">
+              <span class="badge bg-secondary mb-2">Reading Tips</span>
+              <h5>10 Ways to Improve Your Reading Habits</h5>
+              <p class="text-muted small">Posted on May 28, 2023</p>
+              <p class="card-text">Discover practical strategies to make reading a daily habit and get the most out of your reading experience.</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+              <a href="#" class="btn btn-sm btn-custom">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more blog posts -->
+      </div>
+      
+      <!-- Pagination -->
+      <nav class="mt-5">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5>Categories</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-transparent text-white border-secondary">
+              <a href="#" class="text-decoration-none">All Posts</a>
+              <span class="badge bg-secondary float-end">24</span>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-secondary">
+              <a href="#" class="text-decoration-none">Book Reviews</a>
+              <span class="badge bg-secondary float-end">8</span>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-secondary">
+              <a href="#" class="text-decoration-none">Reading Tips</a>
+              <span class="badge bg-secondary float-end">5</span>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-secondary">
+              <a href="#" class="text-decoration-none">Author Interviews</a>
+              <span class="badge bg-secondary float-end">3</span>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-secondary">
+              <a href="#" class="text-decoration-none">Literary News</a>
+              <span class="badge bg-secondary float-end">8</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h5>Subscribe</h5>
+        </div>
+        <div class="card-body">
+          <p>Get the latest blog posts delivered to your inbox</p>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control bg-dark text-white border-secondary" placeholder="Your email">
+            <button class="btn btn-custom" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+  <footer class="footer text-center text-lg-start">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">My e-Library</h5>
+          <p>Your one-stop destination for all your reading needs. Explore fiction, non-fiction, textbooks and classics.</p>
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="catalogs.html"><i class="fas fa-book-open"></i> Catalogs</a></li>
+            <li><a href="book-collection.html"><i class="fas fa-layer-group"></i> Collections</a></li>
+            <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Help & Support</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="help.html"><i class="fas fa-question-circle"></i> Help Center</a></li>
+            <li><a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+            <li><i class="fas fa-envelope"></i> hello@elibrary.example</li>
+            <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2026 My e-Library. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  
+<!-- Footer -->
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
